@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site da Igreja - Registros de Adolescentes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0a0f26;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-container, .database-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #0a0f26;
+        }
+
+        .login-box, .database-box {
+            background-color: #1f2a48;
+            border: 2px solid #00ff00;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        .login-box h1, .database-box h1 {
+            color: #00ff00;
+        }
+
+        .login-box input, .database-box input, .database-box textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+            background-color: #0a0f26;
+            color: #fff;
+        }
+
+        .login-box button, .database-box button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #00ff00;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .login-box button:hover, .database-box button:hover {
+            background-color: #00cc00;
+        }
+
+        .sticker {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .sticker-1 { top: 20px; left: 20px; background-image: url('sticker1.png'); }
+        .sticker-2 { top: 20px; right: 20px; background-image: url('sticker2.png'); }
+        .sticker-3 { bottom: 20px; left: 20px; background-image: url('sticker3.png'); }
+        .sticker-4 { bottom: 20px; right: 20px; background-image: url('sticker4.png'); }
+    </style>
+</head>
+<body>
+    <div class="sticker sticker-1"></div>
+    <div class="sticker sticker-2"></div>
+    <div class="sticker sticker-3"></div>
+    <div class="sticker sticker-4"></div>
+
+    <div class="login-container" id="login-container">
+        <div class="login-box">
+            <h1>Login</h1>
+            <input type="text" id="username" placeholder="Usuário">
+            <input type="password" id="password" placeholder="Senha">
+            <button onclick="login()">Entrar</button>
+        </div>
+    </div>
+
+    <div class="database-container" id="database-container" style="display: none;">
+        <div class="database-box">
+            <h1>Registros dos Adolescentes</h1>
+            <input type="text" id="name" placeholder="Nome">
+            <input type="text" id="phone" placeholder="Telefone">
+            <input type="text" id="address" placeholder="Endereço">
+            <textarea id="discipleship" placeholder="Discipulado"></textarea>
+            <button onclick="saveRecord()">Salvar</button>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === 'senha') {
+                document.getElementById('login-container').style.display = '
